@@ -1,8 +1,8 @@
 from django.shortcuts import render
+from .models import Todo
 
 
 # Create your views here.
 def todo_list(request):
-    nome = 'Gerson'
-    matriz = [[i for i in range(3)] for i in range(3)]
-    return render(request, "todos/todo_list.html", {'nome': nome, 'matriz': matriz})
+    todos = Todo.objects.all()
+    return render(request, "todos/todo_list.html", {'todos': todos})
