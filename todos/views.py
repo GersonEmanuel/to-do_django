@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 
 # Create your views here.
-def home(request):
-    return render(request, "todos\home.html")
+def todo_list(request):
+    nome = 'Gerson'
+    matriz = [[i for i in range(3)] for i in range(3)]
+    return render(request, "todos/todo_list.html", {'nome': nome, 'matriz': matriz})
