@@ -14,7 +14,7 @@
     </nav>
     <main>
         
-        {% if todos %}
+        {% if todo_list %}
         <h1>To do list</h1>
         <table class="table">
             <thead>
@@ -28,7 +28,7 @@
               </tr>
             </thead>
             <tbody>
-                {% for todo in todos  %}
+                {% for todo in todo_list  %}
                     <tr>
                         <th scope="row">{{todo.id}}</th>
                         <td>{{todo.title}}</td>
