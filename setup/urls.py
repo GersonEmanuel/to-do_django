@@ -17,11 +17,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from todos.views import TodoListView, TodoCreateView
+from todos.views import index, cadastrar
+
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", TodoListView.as_view()),
-    path("Create", TodoCreateView.as_view())
+    path("",index ,name='index'),
+    path("cadastrar/",cadastrar ,name='cadastrar')
+    
 ]

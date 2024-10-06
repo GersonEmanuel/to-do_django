@@ -1,13 +1,26 @@
-from django.shortcuts import render
+
+from django.shortcuts import render, redirect
 from .models import Todo
-from  django.views.generic import ListView, CreateView
+from .forms import TudoForm
 
 
 
 # Create your views here.
-class TodoListView(ListView):
-    model = Todo
 
-class TodoCreateView(CreateView):
-    model = Todo
-    fields = ["title", 'deadline']
+def index(request):
+    tarefas = Todo.objects.all()
+
+    context = {'tarefas': tarefas}
+    return render(request, 'todos/todo_list.html', context)
+
+def cadastrar(request):
+    form = TudoForm()
+    if request.method == 'POST':
+        form =TudoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+
+    context = {'form': form}
+    return render(request, 'todos/todo_form.html', context)
+
