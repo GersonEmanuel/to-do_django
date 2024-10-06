@@ -1,7 +1,12 @@
-{% extends "<base.html" %}
+{% extends "base.html" %}
+
+{% block page_title %}
+  New task
+{% endblock page_title %}
 
 
-{% block  %}
+
+{% block content %}
   <h1>To do list</h1>
   {% if todo_list %}
   
@@ -39,6 +44,6 @@
   <a href="{% url 'todo_create'%}">New task</a>
         
 
-{% endblock  %}
+{% endblock content %}
         
         
