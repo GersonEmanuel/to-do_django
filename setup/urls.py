@@ -22,6 +22,6 @@ from todos.views import TodoListView, TodoCreateView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", TodoListView.as_view()),
-    path("Create", TodoCreateView.as_view())
+    path("", TodoListView.as_view(), name="todo_list"),
+    path("create", TodoCreateView.as_view(), name="todo_create"),
 ]
