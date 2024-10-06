@@ -1,1 +1,1 @@
-first project in django
+first project using django
