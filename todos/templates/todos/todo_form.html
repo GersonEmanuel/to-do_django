@@ -13,7 +13,11 @@
         </div>
     </nav>
     <main>
-        <h1>Nova tarefa</h1>
+        {% if todo.pk %}
+            <h1>Editar tarefa</h1>
+        {% else %}
+            <h1>Nova tarefa</h1>
+        {% endif %}
         <form method="POST">
             {% csrf_token %}
             {{form}}
