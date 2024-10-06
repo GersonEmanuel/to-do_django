@@ -30,7 +30,11 @@
             <td>{{todo.deadline}}</td>
             <td>{{todo.finished_data|default:"-"}}</td>
             <td>
-              <a href="#" class= "btn btn-primary">Finished</a>
+
+              <a href="{% url "todo_complete" pk=todo.pk%}" class= "btn btn-primary {% if todo.finished_data %}disabled{% endif %}">
+               
+                Finished
+              </a>
               <a href="{% url "todo_update" pk=todo.pk %}"class ="btn btn-secundary btn-sm">Edit</a>
               <a href="{% url "todo_delete" pk=todo.pk %}" class= "btn btn-danger">Delete</a>
             </td>
